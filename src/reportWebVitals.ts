@@ -1,3 +1,4 @@
+/*
 import { ReportHandler } from "web-vitals";
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
@@ -12,4 +13,14 @@ const reportWebVitals = (onPerfEntry?: ReportHandler) => {
     }
 };
 
+export default reportWebVitals;
+*/
+
+import { onLCP, onINP, onCLS } from "web-vitals";
+
+const reportWebVitals = () => {
+    onCLS(console.log);
+    onINP(console.log);
+    onLCP(console.log);
+};
 export default reportWebVitals;

@@ -4,7 +4,9 @@
     "private": true,
     "dependencies": {
         "react": "^18",
-        "react-dom": "^18"
+        "react-dom": "^18",
+        "react-router-dom": "^6.24.0",
+        "web-vitals": "^4"
     },
     "devDependencies": {
         "@eslint/js": "^9",
@@ -25,7 +27,7 @@
         "eslint-plugin-react": "^7",
         "globals": "^15",
         "husky": ">=9",
-        "jest-environment-jsdom": "^29.7.0",
+        "jest-environment-jsdom": "^29",
         "lint-staged": ">=15",
         "npm-check-updates": "^16",
         "postcss": "^8",
@@ -34,8 +36,7 @@
         "tailwindcss": "^3",
         "ts-jest": "^29",
         "typescript": "^5",
-        "typescript-eslint": "^7",
-        "web-vitals": "^4.2.0"
+        "typescript-eslint": "^7"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -47,7 +48,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json,mjs}\" --config ./.prettierrc.json",
-        "postinstall": "husky install"
+        "prepare": "husky"
     },
     "eslintConfig": {
         "extends": [
