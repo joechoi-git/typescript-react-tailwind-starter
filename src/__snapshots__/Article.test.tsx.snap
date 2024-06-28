@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article Component matches snapshot 1`] = `
+<DocumentFragment>
+  <header>
+    <h1>
+      Example Article Title
+    </h1>
+    <p>
+      Published on 
+      <time
+        datetime="2024-06-28"
+      >
+        June 28, 2024
+      </time>
+       by 
+      <span>
+        Author Name
+      </span>
+    </p>
+  </header>
+  <article>
+    <section>
+      <p>
+        Example content of the article.
+      </p>
+    </section>
+  </article>
+</DocumentFragment>
+`;

@@ -1,23 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Article from "./Article";
 
-interface ArticleProps {
-    title: string;
-    content: string;
-}
-
-function Article({ title, content }: ArticleProps): JSX.Element {
-    return (
-        <div>
-            <h2>{title}</h2>
-            <p>{content}</p>
-        </div>
-    );
-}
-
-export default function App(): JSX.Element {
+export default function App(): React.JSX.Element {
     return (
         <Router>
             <nav>
