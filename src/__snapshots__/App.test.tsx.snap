@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches snapshot 1`] = `
+<DocumentFragment>
+  <nav>
+    <img
+      alt="logo"
+      class="App-logo"
+      src="test-file-stub"
+    />
+    <ul>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          href="/users"
+        >
+          Users
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <header>
+    <h1>
+      Users
+    </h1>
+    <p>
+      Published on 
+      <time
+        datetime="2024-06-28"
+      >
+        June 28, 2024
+      </time>
+       by 
+      <span>
+        Author Name
+      </span>
+    </p>
+  </header>
+  <article>
+    <section>
+      <p>
+        How many folks came to visit?
+      </p>
+    </section>
+  </article>
+</DocumentFragment>
+`;
