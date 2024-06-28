@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import logo from "./logo.svg";
+import logo from "../logo.svg";
 import "./App.css";
-import Article from "./Article";
+import { Article } from "./Article";
 
 export default function App(): React.JSX.Element {
     return (

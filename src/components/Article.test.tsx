@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Article from "./Article";
+import { Article, ArticleProps } from "./Article";
 
 describe("Article Component", () => {
-    const articleProps = {
+    const articleProps: ArticleProps = {
         title: "Example Article Title",
         content: "Example content of the article."
     };
