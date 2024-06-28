@@ -3,45 +3,52 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-function App() {
-    return (
-        <Router>
-            <div>
-                <nav>
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">Users</Link>
-                        </li>
-                    </ul>
-                </nav>
+interface ArticleProps {
+    title: string;
+    content: string;
+}
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/users" element={<Users />} />
-                </Routes>
-            </div>
-        </Router>
+function Article({ title, content }: ArticleProps): JSX.Element {
+    return (
+        <div>
+            <h2>{title}</h2>
+            <p>{content}</p>
+        </div>
     );
 }
 
-function Home() {
-    return <h2>Home</h2>;
-}
+export default function App(): JSX.Element {
+    return (
+        <Router>
+            <nav>
+                <img src={logo} className="App-logo" alt="logo" />
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/users">Users</Link>
+                    </li>
+                </ul>
+            </nav>
 
-function About() {
-    return <h2>About</h2>;
+            <Routes>
+                <Route
+                    path="/"
+                    element={<Article title={"Home"} content={"Welcome to React App!"} />}
+                />
+                <Route
+                    path="/about"
+                    element={<Article title={"About"} content={"I am super awesome!"} />}
+                />
+                <Route
+                    path="/users"
+                    element={<Article title={"Users"} content={"How many folks came to visit?"} />}
+                />
+            </Routes>
+        </Router>
+    );
 }
-
-function Users() {
-    return <h2>Users</h2>;
-}
-
-export default App;
