@@ -41,9 +41,8 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test:old": "react-scripts test",
-        "test:old2": "react-scripts test --coverage --watchAll=false .",
         "test": "jest --coverage --watchAll=false .",
+        "test:update": "npm run test -- -u",
         "eject": "react-scripts eject",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",

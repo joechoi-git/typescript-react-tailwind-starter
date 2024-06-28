@@ -1,11 +1,11 @@
 import React from "react";
 
-interface ArticleProps {
+export interface ArticleProps {
     title: string;
     content: string;
 }
 
-export default function Article({ title, content }: ArticleProps): React.JSX.Element {
+export function Article({ title, content }: ArticleProps): React.JSX.Element {
     return (
         <>
             <header>
