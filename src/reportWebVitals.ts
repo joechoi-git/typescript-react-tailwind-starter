@@ -1,3 +1,4 @@
+/*
 import { ReportHandler } from "web-vitals";
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
@@ -12,4 +13,7 @@ const reportWebVitals = (onPerfEntry?: ReportHandler) => {
     }
 };
 
+export default reportWebVitals;
+*/
+const reportWebVitals = () => {};
 export default reportWebVitals;
