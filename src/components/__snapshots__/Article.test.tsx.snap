@@ -22,7 +22,7 @@ exports[`Article Component matches snapshot 1`] = `
   <article>
     <section>
       <p
-        class="text-blue-600 dark:text-white"
+        class="italic text-blue-600 dark:text-white"
       >
         Example content of the article.
       </p>
