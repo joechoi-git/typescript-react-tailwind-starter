@@ -4,7 +4,7 @@ exports[`App Component matches snapshot 1`] = `
 <DocumentFragment>
   <nav>
     <button
-      class="w-[40px] h-[40px] flex items-center justify-center rounded-md border-2 border-darkmode dark:border-white"
+      class="w-[40px] h-[40px] flex items-center justify-center rounded-md border-2 border-black dark:border-white"
     >
       <svg
         fill="currentColor"
@@ -72,7 +72,9 @@ exports[`App Component matches snapshot 1`] = `
   </header>
   <article>
     <section>
-      <p>
+      <p
+        class="text-blue-600 dark:text-white"
+      >
         How many folks came to visit?
       </p>
     </section>

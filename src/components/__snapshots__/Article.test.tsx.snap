@@ -21,7 +21,9 @@ exports[`Article Component matches snapshot 1`] = `
   </header>
   <article>
     <section>
-      <p>
+      <p
+        class="text-blue-600 dark:text-white"
+      >
         Example content of the article.
       </p>
     </section>

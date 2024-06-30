@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from "../logo.svg";
 import "./App.css";
 import ThemeContextProvider from "../context/ThemeContext";
-import { NavBar } from "./NavBar";
+import { ThemeToggle } from "./ThemeToggle";
 import { Article } from "./Article";
 
 export default function App(): React.JSX.Element {
@@ -11,7 +11,7 @@ export default function App(): React.JSX.Element {
         <ThemeContextProvider>
             <Router>
                 <nav>
-                    <NavBar />
+                    <ThemeToggle />
                     <img src={logo} className="App-logo" alt="logo" />
                     <ul>
                         <li>
