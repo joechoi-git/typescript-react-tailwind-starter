@@ -17,7 +17,7 @@ export function Article({ title, content }: ArticleProps): React.JSX.Element {
             </header>
             <article>
                 <section>
-                    <p>{content}</p>
+                    <p className="italic text-blue-600 dark:text-white">{content}</p>
                 </section>
             </article>
         </>
