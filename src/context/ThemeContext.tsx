@@ -4,10 +4,11 @@ interface ThemeContextType {
     theme: boolean;
     toggleTheme: () => void;
 }
+export const ThemeContext = createContext<ThemeContextType | null>(null);
+
 interface IProps {
     children: ReactNode;
 }
-export const ThemeContext = createContext<ThemeContextType | null>(null);
 
 const ThemeContextProvider = ({ children }: IProps) => {
     const [theme, setTheme] = useState(false);
@@ -16,6 +17,7 @@ const ThemeContextProvider = ({ children }: IProps) => {
         setTheme((prev) => !prev);
         document.body.classList.toggle("dark");
     }, [theme]);
+
     const value = {
         theme,
         toggleTheme

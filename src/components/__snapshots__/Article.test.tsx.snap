@@ -3,7 +3,9 @@
 exports[`Article Component matches snapshot 1`] = `
 <DocumentFragment>
   <header>
-    <h1>
+    <h1
+      class="text-2xl"
+    >
       Example Article Title
     </h1>
     <p>
@@ -11,19 +13,13 @@ exports[`Article Component matches snapshot 1`] = `
       <time
         datetime="2024-06-28"
       >
-        June 28, 2024
+        Sunday, June 30, 2024
       </time>
-       by 
-      <span>
-        Author Name
-      </span>
     </p>
   </header>
   <article>
     <section>
-      <p
-        class="italic text-blue-600 dark:text-white"
-      >
+      <p>
         Example content of the article.
       </p>
     </section>
