@@ -1,90 +1,55 @@
 import React from "react";
-import { render, screen } from "@testing-library/react"; // , waitFor, act
+import { render, waitFor, screen } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Post from "./Post";
 
-jest.useFakeTimers();
+// Mock the fetch function
+const mockFetch = jest.fn();
+global.fetch = mockFetch;
 
-// Mock the Spinner component
-// eslint-disable-next-line react/display-name
-jest.mock("./Spinner", () => () => <div>Loading...</div>);
-
-describe("Post Component", () => {
-    beforeEach(() => {
-        global.fetch = jest.fn();
-    });
-
-    afterEach(() => {
-        jest.restoreAllMocks();
-    });
-
-    test("renders loading spinner initially", () => {
-        (global.fetch as jest.Mock).mockResolvedValueOnce({
+describe("Post component", () => {
+    test("renders loading spinner while fetching data", async () => {
+        // Mock the response for loading spinner test
+        mockFetch.mockResolvedValueOnce({
             ok: true,
-            status: 200,
-            json: async () => ({ id: 1, title: "Test Title", body: "Test Body" })
+            json: async () => ({ id: 1, title: "Mock Post Title", body: "Mock Post Body" })
         });
 
         render(
-            <MemoryRouter initialEntries={["/post/1"]}>
+            <MemoryRouter initialEntries={["/posts/1"]}>
                 <Routes>
-                    <Route path="/post/:id" element={<Post />} />
+                    <Route path="/posts/:id" element={<Post />} />
                 </Routes>
             </MemoryRouter>
         );
 
-        expect(screen.getByText("Loading...")).toBeInTheDocument();
-    });
-
-    /*
-    test("renders post data when fetch is successful", async () => {
-        (global.fetch as jest.Mock).mockResolvedValueOnce(
-            Promise.resolve({
-                ok: true,
-                status: 200,
-                json: () => Promise.resolve({ id: 1, title: "Test Title", body: "Test Body" })
-            })
-        );
-
-        render(
-            <MemoryRouter initialEntries={["/post/1"]}>
-                <Routes>
-                    <Route path="/post/:id" element={<Post />} />
-                </Routes>
-            </MemoryRouter>
-        );
-
-        // Fast-forward the timer to simulate the 1 second delay
-        act(() => {
-            jest.advanceTimersByTime(2000);
-        });
+        expect(screen.getByTestId("spinner")).toBeInTheDocument();
 
         await waitFor(() => {
-            expect(screen.getByText("Test Title")).toBeInTheDocument();
+            expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
         });
-
-        expect(screen.getByText("Test Body")).toBeInTheDocument();
     });
 
-    test("renders error message when fetch fails", async () => {
-        (global.fetch as jest.Mock).mockRejectedValueOnce(new Error("Network response was not ok"));
+    test("renders post data after loading", async () => {
+        // Mock the response for post data test
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({ id: 1, title: "Mock Post Title", body: "Mock Post Body" })
+        });
 
         render(
-            <MemoryRouter initialEntries={["/post/1"]}>
+            <MemoryRouter initialEntries={["/posts/1"]}>
                 <Routes>
-                    <Route path="/post/:id" element={<Post />} />
+                    <Route path="/posts/:id" element={<Post />} />
                 </Routes>
             </MemoryRouter>
         );
 
-        // Fast-forward the timer to simulate the 1 second delay
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
-
         await waitFor(() => {
-            expect(screen.getByText("Network response was not ok")).toBeInTheDocument();
+            expect(screen.getByText("Mock Post Title")).toBeInTheDocument();
+            expect(screen.getByText("Mock Post Body")).toBeInTheDocument();
         });
     });
-    */
+
+    // Add more tests as needed
 });
