@@ -20,12 +20,12 @@ export default function Posts() {
     }
 
     return (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        <ul className="list-disc ml-8">
             {posts.map((post, index) => (
-                <Link key={index} to={`/posts/${post.id}`}>
-                    {post.title}
-                </Link>
+                <li key={index}>
+                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                </li>
             ))}
-        </div>
+        </ul>
     );
 }

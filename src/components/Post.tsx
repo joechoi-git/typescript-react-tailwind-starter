@@ -16,6 +16,7 @@ export default function Post(): React.JSX.Element {
 
     useEffect(() => {
         setTimeout(() => {
+            console.log("id", id);
             fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
                 .then((response) => {
                     if (!response.ok) {
