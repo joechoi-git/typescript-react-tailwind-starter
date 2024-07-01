@@ -30,12 +30,14 @@ export default function Posts() {
     }
 
     return (
-        <ul className="list-disc ml-8">
-            {posts.map((post, index) => (
-                <li key={index}>
-                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
-                </li>
-            ))}
-        </ul>
+        <>
+            <ul className="list-disc ml-8">
+                {posts.map((post, index) => (
+                    <li key={index}>
+                        <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                    </li>
+                ))}
+            </ul>
+        </>
     );
 }

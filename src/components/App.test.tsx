@@ -9,7 +9,7 @@ describe("App Component", () => {
 
         // Get the navigation element
         const nav = screen.getByRole("navigation");
-        console.log("nav", nav.outerHTML);
+        // console.log("nav", nav.outerHTML);
 
         // Check if navigation links are rendered
         expect(within(nav).getByText(/home/i)).toBeInTheDocument();
@@ -26,17 +26,25 @@ describe("App Component", () => {
         const homeLink = within(nav).getByText(/home/i);
         userEvent.click(homeLink);
         await new Promise((resolve) => setTimeout(resolve, 100));
-        console.log("home clicked");
-        screen.debug();
+        // console.log("home clicked");
+        // screen.debug();
         expect(screen.getByRole("heading", { name: /home/i })).toBeInTheDocument();
 
         // Click on the About link and check if the About component is displayed
         const aboutLink = within(nav).getByText(/about/i);
         userEvent.click(aboutLink);
         await new Promise((resolve) => setTimeout(resolve, 100));
-        console.log("about clicked");
-        screen.debug();
+        // console.log("about clicked");
+        // screen.debug();
         expect(screen.getByRole("heading", { name: /about/i })).toBeInTheDocument();
+
+        // Click on the About link and check if the About component is displayed
+        const postsLink = within(nav).getByText(/posts/i);
+        userEvent.click(postsLink);
+        await new Promise((resolve) => setTimeout(resolve, 100));
+        // console.log("posts clicked");
+        // screen.debug();
+        expect(screen.queryByTestId("spinner")).toBeInTheDocument();
     });
 
     test("matches snapshot", () => {

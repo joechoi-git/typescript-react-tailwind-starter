@@ -8,14 +8,6 @@ exports[`Article Component matches snapshot 1`] = `
     >
       Example Article Title
     </h1>
-    <p>
-      Published on 
-      <time
-        datetime="2024-06-28"
-      >
-        Monday, July 1, 2024
-      </time>
-    </p>
   </header>
   <article>
     <section>
