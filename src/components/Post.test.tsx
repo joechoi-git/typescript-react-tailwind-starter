@@ -1,5 +1,5 @@
 import React from "react";
-import { render, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen, act } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import Post from "./Post";
 
@@ -25,6 +25,10 @@ describe("Post component", () => {
 
         expect(screen.getByTestId("spinner")).toBeInTheDocument();
 
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+        });
+
         await waitFor(() => {
             expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
         });
@@ -44,6 +48,10 @@ describe("Post component", () => {
                 </Routes>
             </MemoryRouter>
         );
+
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+        });
 
         await waitFor(() => {
             expect(screen.getByText("Mock Post Title")).toBeInTheDocument();

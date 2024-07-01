@@ -15,22 +15,22 @@ export default function Post(): React.JSX.Element {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
-        // setTimeout(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((result: PostData) => {
-                setData(result);
-            })
-            .catch((err: Error) => {
-                setError(err);
-            })
-            .finally(() => setIsLoading(false));
-        // }, 1000); // Delay of 1 second
+        setTimeout(() => {
+            fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((result: PostData) => {
+                    setData(result);
+                })
+                .catch((err: Error) => {
+                    setError(err);
+                })
+                .finally(() => setIsLoading(false));
+        }, 1000); // Delay of 1 second
     }, [id]);
 
     if (isLoading) {
