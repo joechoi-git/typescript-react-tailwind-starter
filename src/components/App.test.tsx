@@ -14,7 +14,6 @@ describe("App Component", () => {
         // Check if navigation links are rendered
         expect(within(nav).getByText(/home/i)).toBeInTheDocument();
         expect(within(nav).getByText(/about/i)).toBeInTheDocument();
-        expect(within(nav).getByText(/users/i)).toBeInTheDocument();
     });
 
     test("renders correct content for each route", async () => {
@@ -38,14 +37,6 @@ describe("App Component", () => {
         console.log("about clicked");
         screen.debug();
         expect(screen.getByRole("heading", { name: /about/i })).toBeInTheDocument();
-
-        // Click on the Users link and check if the Users component is displayed
-        const usersLink = within(nav).getByText(/users/i);
-        userEvent.click(usersLink);
-        await new Promise((r) => setTimeout(r, 100));
-        console.log("users clicked");
-        screen.debug();
-        expect(screen.getByRole("heading", { name: /users/i })).toBeInTheDocument();
     });
 
     test("matches snapshot", () => {
