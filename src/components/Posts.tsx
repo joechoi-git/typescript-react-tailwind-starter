@@ -6,17 +6,25 @@ import Spinner from "./Spinner";
 export default function Posts() {
     const [isLoading, setIsLoading] = useState(true);
     const [posts, setPosts] = useState<PostData[]>([]);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         setIsLoading(true);
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) => response.json())
             .then((json) => setPosts(json))
+            .catch((err: Error) => {
+                setError(err);
+            })
             .finally(() => setIsLoading(false));
     }, []);
 
     if (isLoading) {
         return <Spinner />;
+    }
+
+    if (error) {
+        return <p>{error.message}</p>;
     }
 
     return (
