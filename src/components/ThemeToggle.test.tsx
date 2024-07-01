@@ -41,4 +41,11 @@ describe("ThemeToggle Component", () => {
         fireEvent.click(screen.getByRole("button"));
         expect(mockToggleTheme).toHaveBeenCalledTimes(1);
     });
+
+    test("matches snapshot", () => {
+        const { asFragment } = render(<ThemeToggle />);
+
+        // Use toMatchSnapshot to compare the rendered output with a stored snapshot
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

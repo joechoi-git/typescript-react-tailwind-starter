@@ -11,4 +11,11 @@ describe("Spinner Component", () => {
         expect(spinnerImage).toHaveAttribute("src", logo);
         expect(spinnerImage).toHaveClass("spinner");
     });
+
+    test("matches snapshot", () => {
+        const { asFragment } = render(<Spinner />);
+
+        // Use toMatchSnapshot to compare the rendered output with a stored snapshot
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

@@ -80,6 +80,4 @@ describe("Posts component", () => {
             expect(screen.getByText(errorMessage)).toBeInTheDocument();
         });
     });
-
-    // Add more tests as needed
 });
