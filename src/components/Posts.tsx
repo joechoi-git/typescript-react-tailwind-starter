@@ -9,14 +9,16 @@ export default function Posts() {
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch("https://jsonplaceholder.typicode.com/posts")
-            .then((response) => response.json())
-            .then((json) => setPosts(json))
-            .catch((err: Error) => {
-                setError(err);
-            })
-            .finally(() => setIsLoading(false));
+        setTimeout(() => {
+            setIsLoading(true);
+            fetch("https://jsonplaceholder.typicode.com/posts")
+                .then((response) => response.json())
+                .then((json) => setPosts(json))
+                .catch((err: Error) => {
+                    setError(err);
+                })
+                .finally(() => setIsLoading(false));
+        }, 1000);
     }, []);
 
     if (isLoading) {

@@ -30,7 +30,7 @@ export default function Post(): React.JSX.Element {
                     setError(err);
                 })
                 .finally(() => setIsLoading(false));
-        }, 1000); // Delay of 1 second
+        }, 1000);
     }, [id]);
 
     if (isLoading) {
