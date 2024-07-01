@@ -59,5 +59,26 @@ describe("Post component", () => {
         });
     });
 
-    // Add more tests as needed
+    test("handles error state when fetch fails", async () => {
+        // Mock the response for error state test
+        const errorMessage = "Network error";
+        mockFetch.mockRejectedValueOnce(new Error(errorMessage));
+
+        render(
+            <MemoryRouter initialEntries={["/posts/1"]}>
+                <Routes>
+                    <Route path="/posts/:id" element={<Post />} />
+                </Routes>
+            </MemoryRouter>
+        );
+
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+        });
+
+        await waitFor(() => {
+            expect(screen.queryByTestId("spinner")).not.toBeInTheDocument();
+            expect(screen.getByText(errorMessage)).toBeInTheDocument();
+        });
+    });
 });
