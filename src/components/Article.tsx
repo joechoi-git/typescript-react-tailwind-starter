@@ -6,7 +6,7 @@ export interface ArticleProps {
     content: string;
 }
 
-export function Article({ title, content }: ArticleProps): React.JSX.Element {
+export default function Article({ title, content }: ArticleProps): React.JSX.Element {
     return (
         <>
             <header>

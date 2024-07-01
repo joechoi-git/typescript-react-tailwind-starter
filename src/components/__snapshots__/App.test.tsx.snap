@@ -28,11 +28,6 @@ exports[`App Component matches snapshot 1`] = `
           />
         </svg>
       </button>
-      <img
-        alt="logo"
-        class="App-logo"
-        src="test-file-stub"
-      />
       <ul>
         <li>
           <a
@@ -50,9 +45,9 @@ exports[`App Component matches snapshot 1`] = `
         </li>
         <li>
           <a
-            href="/users"
+            href="/posts"
           >
-            Users
+            Posts
           </a>
         </li>
       </ul>
@@ -61,21 +56,21 @@ exports[`App Component matches snapshot 1`] = `
       <h1
         class="text-2xl"
       >
-        Users
+        About
       </h1>
       <p>
         Published on 
         <time
           datetime="2024-06-28"
         >
-          Sunday, June 30, 2024
+          Monday, July 1, 2024
         </time>
       </p>
     </header>
     <article>
       <section>
         <p>
-          How many folks came to visit?
+          I am super awesome!
         </p>
       </section>
     </article>

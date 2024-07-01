@@ -1,0 +1,19 @@
+.spinner {
+    height: 10vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .spinner {
+        animation: spinner-keyframes infinite 20s linear;
+    }
+}
+
+@keyframes spinner-keyframes {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

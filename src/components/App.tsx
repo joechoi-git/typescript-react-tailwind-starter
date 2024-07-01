@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import logo from "../logo.svg";
-import "./App.css";
 import ThemeContextProvider from "../context/ThemeContext";
-import { ThemeToggle } from "./ThemeToggle";
-import { Article } from "./Article";
+import ThemeToggle from "./ThemeToggle";
+import Article from "./Article";
+import Posts from "./Posts";
+import Post from "./Post";
 
 export default function App(): React.JSX.Element {
     return (
@@ -13,7 +13,6 @@ export default function App(): React.JSX.Element {
                 <div className="text-black dark:text-white">
                     <nav>
                         <ThemeToggle />
-                        <img src={logo} className="App-logo" alt="logo" />
                         <ul>
                             <li>
                                 <Link to="/">Home</Link>
@@ -22,7 +21,7 @@ export default function App(): React.JSX.Element {
                                 <Link to="/about">About</Link>
                             </li>
                             <li>
-                                <Link to="/users">Users</Link>
+                                <Link to="/posts">Posts</Link>
                             </li>
                         </ul>
                     </nav>
@@ -36,15 +35,8 @@ export default function App(): React.JSX.Element {
                             path="/about"
                             element={<Article title={"About"} content={"I am super awesome!"} />}
                         />
-                        <Route
-                            path="/users"
-                            element={
-                                <Article
-                                    title={"Users"}
-                                    content={"How many folks came to visit?"}
-                                />
-                            }
-                        />
+                        <Route path="posts" element={<Posts />} />
+                        <Route path="posts/:id" element={<Post />} />
                     </Routes>
                 </div>
             </Router>

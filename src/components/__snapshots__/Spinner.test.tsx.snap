@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Component matches snapshot 1`] = `
+<DocumentFragment>
+  <img
+    alt="spinner"
+    class="spinner"
+    data-testid="spinner"
+    src="test-file-stub"
+  />
+</DocumentFragment>
+`;

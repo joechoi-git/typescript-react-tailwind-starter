@@ -30,6 +30,7 @@
         "globals": "^15",
         "husky": ">=9",
         "jest-environment-jsdom": "^29",
+        "jest-fetch-mock": "^3.0.3",
         "lint-staged": ">=15",
         "npm-check-updates": "^16",
         "postcss": "^8",
