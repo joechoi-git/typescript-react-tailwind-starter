@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Spinner } from "./Spinner";
+import { useParams } from "react-router-dom";
+import Spinner from "./Spinner";
 
-export interface PostProps {
-    id: string;
-}
-
-interface Data {
+export interface PostData {
     id: number;
     title: string;
     body: string;
 }
 
-export function Post({ id }: PostProps): React.JSX.Element {
-    const [data, setData] = useState<Data | null>(null);
+export default function Post(): React.JSX.Element {
+    const { id } = useParams();
+    const [data, setData] = useState<PostData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null);
 
@@ -25,7 +23,7 @@ export function Post({ id }: PostProps): React.JSX.Element {
                     }
                     return response.json();
                 })
-                .then((result: Data) => {
+                .then((result: PostData) => {
                     setData(result);
                 })
                 .catch((err: Error) => {

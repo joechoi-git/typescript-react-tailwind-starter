@@ -3,7 +3,7 @@ import { useTheme } from "../context/ThemeContext";
 import { MdLightMode } from "react-icons/md";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
-export function ThemeToggle(): React.JSX.Element {
+export default function ThemeToggle(): React.JSX.Element {
     const { theme, toggleTheme } = useTheme();
     const handleToggle = () => {
         toggleTheme();

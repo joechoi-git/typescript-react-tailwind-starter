@@ -45,9 +45,9 @@ exports[`App Component matches snapshot 1`] = `
         </li>
         <li>
           <a
-            href="/post"
+            href="/posts"
           >
-            Post
+            Posts
           </a>
         </li>
       </ul>
